@@ -1,11 +1,10 @@
 import React from 'react';
-import {Navbar,Footer} from '../components';
+import {Navbar,Footer, Categories, Cities, BottomCta} from '../components';
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
-      <Footer />
+
     </div>
   )
 }
