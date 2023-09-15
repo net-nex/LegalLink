@@ -1,8 +1,8 @@
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer';
-import Categories from './Categories/Categories';
-import Cities from './Cities/Cities'
-import BottomCta from './BottomCta/BottomCta';
+import Hero from './Hero/Hero';
+import Lawyers from './Lawyers/Lawyers';
+import LawyersCard from './Lawyers/LawyersCard';
 
 export {
     Navbar,
@@ -10,4 +10,7 @@ export {
     Cities,
     BottomCta,
     Footer,
+    Hero,
+    Lawyers,
+    LawyersCard,
 };

@@ -4,13 +4,16 @@ import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import './App.css';
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import InputForm from './components/inputForm';
 
 function App() {
   return (
     <div className="App">
-      
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/input" element={<InputForm />} />
+        <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='signup'  element={<SignUp/>}/>
       </Routes>
