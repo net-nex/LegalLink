@@ -1,4 +1,7 @@
 import {Navbar,Footer} from './components';
+import { Routes, Route} from 'react-router-dom';
+import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
 import './App.css';
 
 function App() {
