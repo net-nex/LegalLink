@@ -5,6 +5,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Routes>
+        <Route path='/signin' element={<SignIn/>}/>
+        <Route path='signup'  element={<SignUp/>}/>
+      </Routes>
       <Footer />
     </div>
   );
