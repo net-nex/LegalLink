@@ -40,22 +40,22 @@ const Lawyers = () => {
     <div className='lawyers' id='lawyers'>
       <div className='flex flex-col px-[120px]'>
         <div className='flex justify-center items-center lawyers_heading'>
-          <h2>Popular Lawyers</h2>
+          <h2 className='text-4xl font-bold py-5'>Popular Lawyers</h2>
         </div>
-        <div className='flex justify-center items-center lawyers_p'>
+        <div className='flex justify-center items-center text-lg text-center font-semibold mb-3'>
           <p>Discover our elite team of legal experts, meticulously selected to provide you with top-notch legal counsel. Our best lawyers are here to guide you through your legal journey with unparalleled expertise and dedication</p>
         </div>
-        <div className='flex flex-col justify-center items-center lawyers_city '>
-          <div className=' w-full flex  justify-between items-center'>
-            <h4>Mumbai</h4>
-            <h4>Chennai</h4>
-            <h4>Kolkata</h4>
-            <h4>Bangalore</h4>
-            <h4>Hyderabad</h4>
+        <div className='flex flex-col justify-center items-center lawyers_city px-10 sm:ml-40px sm:mr-40px '>
+          <div className=' text-lg w-full flex  justify-center items-center'>
+            <h4 className='border-[#000000] border-b-2 px-7 py-3'>Mumbai</h4>
+            <h4 className='border-[#000000] border-b-2 px-7 py-3'>Chennai</h4>
+            <h4 className='border-[#000000] border-b-2 px-7 py-3'>Kolkata</h4>
+            <h4 className='border-[#000000] border-b-2 px-7 py-3'>Bangalore</h4>
+            <h4 className='border-[#000000] border-b-2 px-7 py-3'>Hyderabad</h4>
           </div>
-          <div className='w-full bg-[#132A47] h-[1px] mt-[5px]' />
+          {/* <div className='w-full bg-[#132A47] h-[1px] mt-[5px]' /> */}
         </div>
-        <div className='grid grid-cols-3 gap-5 md:grid-cols-3 sm:gird-cols-1'>
+        <div className='grid grid-cols-1 gap-5 md:grid-cols-3 sm:gird-cols-1'>
           {
             Lawyerss.map((project, index) => {
               return (
