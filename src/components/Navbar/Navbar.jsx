@@ -16,7 +16,7 @@ const Navbar = () => {
                 </a>
             </div>
             <ul className="app__navbar-links">
-                <li className="text-white font-semibold text-xl "><a href="#lawyers">Lawyers</a></li>
+                <li className="text-white font-semibold text-xl "><a href="/#lawyers">Lawyers</a></li>
                 <li className="text-white font-semibold text-xl"><a href="/dashboard">Dashboard</a></li>
                 <li className="text-white font-semibold text-xl"><a href="/chat">Chat</a></li>
             </ul>
@@ -43,7 +43,7 @@ const Navbar = () => {
 
                         </div>
                         <ul className="app__navbar-smallscreen_links " onClick={() => setToggleMenu(false)}>
-                            <li className="font-bold text-white"><a href="#lawyers">Lawyers</a></li>
+                            <li className="font-bold text-white"><a href="/#lawyers">Lawyers</a></li>
                             <li className="font-bold"><a href="/dashboard">Dashboard</a></li>
                             <li className="font-bold"><a href="/chat">Chat</a></li>
                         </ul>

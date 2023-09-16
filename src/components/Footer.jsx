@@ -47,7 +47,7 @@ const Footer = () => {
             className="mt-12 flex flex-col justify-center items-center gap-3   md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
           >
             <li>
-              <a className="text-[#B2BBC2] transition hover:text-gray-700/75" href="#lawyers">
+              <a className="text-[#B2BBC2] transition hover:text-gray-700/75" href="/#lawyers">
                 Lawyers
               </a>
             </li>

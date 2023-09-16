@@ -4,12 +4,12 @@ import {Chat} from '../components/Chat';
 import {Navbar,Footer} from '../components/';
 import { Children, useContext } from "react";
 import { AuthContext } from "../context/authContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 const Chatting = () => {
   const navigate = useNavigate
   const { currentUser,lawyer } = useContext(AuthContext);
   if(!currentUser){
-    return navigate('/signup')
+    return <Navigate to={'/signup'}/>
   }
   return (
     <>
