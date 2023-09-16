@@ -3,8 +3,9 @@ import { Routes, Route , Navigate} from 'react-router-dom';
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import './App.css';
+import './components/Chat/Chat.css';
 import Home from './pages/Home';
-import Chat from './pages/Chat';
+import Chatting from './pages/Chatting';
 import Dashboard from './pages/Dashboard';
 import InputForm from './components/inputForm';
 import { Children, useContext } from "react";
@@ -30,7 +31,7 @@ function App() {
         
           <Route path='/input' element={<InputForm/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/chat' element={<Chat />} />
+        <Route path='/chat' element={<Chatting />} />
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='signup'  element={<SignUp/>}/>
       </Routes>
