@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Chatting from './pages/Chatting';
 import Dashboard from './pages/Dashboard';
 import InputForm from './components/inputForm';
+import Blog from './pages/Blog';
 import { Children, useContext } from "react";
 import { AuthContext } from "./context/authContext";
 
@@ -28,8 +29,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        
-          <Route path='/input' element={<InputForm/>}/>
+        <Route path='/blog' element={<Blog/>}/>
+        <Route path='/input' element={<InputForm/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/chat' element={<Chatting />} />
         <Route path='/signin' element={<SignIn/>}/>

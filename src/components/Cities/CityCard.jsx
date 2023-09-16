@@ -1,14 +1,15 @@
 import CityImage from './cityImage.png'
 
-const CityCard = () => {
+const CityCard = ({city, image}) => {
   return (
     <div className='border-3 border-black bg-white mb-3 pb-3'>
-      <div className='w-full' style={{backgroundImage:'url("./cityImage.png")'}}>
-        <img src={CityImage} alt="" className='object-contain w-full h-full'/>
+      <div className='w-full h-[150px]'>
+        <img src={image} alt="" className='object-cover w-full h-full'/>
       </div>
-      <p className='pl-4'>Mumbai</p>
+      <p className='mt-3'>{city}</p>
     </div>
   )
 }
 
 export default CityCard
+

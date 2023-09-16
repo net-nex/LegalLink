@@ -1,21 +1,28 @@
 import CityCard from "./CityCard"
 import CityImage2 from './CityImage2.png'
+import mumbai from './mumbai.jpg'
+import kolkata from './kolkata.jpg'
+import hyderabad from './hyderabad.jpg'
+import delhi from './/delhi.jpg'
+import chennai from './chennai.jpg'
+import kochi from './kochi.jpg'
+import nagpur from './nagpur.jpg'
+import bankura from './mumbai.jpg'
 
 const Cities = () => {
     return (
         <section className="flex flex-col justify-center items-center px-14 sm:px-[40px] sm:py-[50px]">
             <h1 className="text-2xl font-bold pb-5">Find Your City</h1>
             <p className="w-50 pb-7 text-center">Any solicitors or legal business can submit a listing to our website. Our site is free for UK solicitors or legal business</p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 place-self-center">
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 place-self-center">
+                <CityCard city="Mumbai" image={mumbai}/>
+                <CityCard city="Kolkata" image={kolkata}/>
+                <CityCard city="Hyderabad" image={hyderabad}/>
+                <CityCard city="Delhi" image={delhi}/>
+                <CityCard city="Chennai" image={chennai}/>
+                <CityCard city="Kochi" image={kochi}/>
+                <CityCard city="Nagpur" image={nagpur}/>
+                <CityCard city="Bankura" image={mumbai}/>
             </div>
             <div className="flex justify-between space-x-1 mt-14 sm:mt-[50px] mb-[50px]">
                 <div>
