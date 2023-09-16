@@ -17,10 +17,7 @@ const InputForm = () => {
                 <input type='text' className='border border-black-1 px-2 py-3'/>
             </div>
         </div>
-        <div className='flex flex-col w-[65%] pt-3 justify-around'>
-        <div className='text-xl text-left' >Email</div>
-            <input type='email' className='border border-black-1  py-3 w-full px-5'/>
-        </div>
+
         <div className='flex flex-col w-[65%] pt-3 justify-around'>
             <div className='text-xl'>Contact Number</div>
             <input type='number' className='border border-black-1  py-3 w-full px-5'/>

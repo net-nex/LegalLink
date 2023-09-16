@@ -1,6 +1,62 @@
 
-
+import { createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; 
+import {useState} from 'react'
+import {auth,db} from '../firebase'
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
+    const navigate = useNavigate();
+    const { setLawyer } = useContext(AuthContext);
+    const [error,setError] = useState(false)
+    const [data,setData] = useState({
+        email : "",
+        password : ""
+    })
+    const [asLawyer,setAsLaywer] = useState(false)
+    const handleEmailChange = (e)=>{
+        setData((prev)=>{
+            return ({...prev,email : e.target.value})
+        })
+        console.log(data)
+    }
+    const handlePasswordChange = (e)=>{
+        setData((prev)=>{
+            return ({...prev,password : e.target.value})
+        })
+        console.log(data)
+    }
+    const lawyerLogin = (e)=>{
+        setAsLaywer((prev)=>{
+            return (!prev)
+        })
+        console.log(data)
+    }
+    const handleSubmit = async (e)=>{
+    
+        e.preventDefault();
+        const email = e.target[0].value;
+        const password = e.target[1].value;
+        const isLawyer = asLawyer;
+        setLawyer(isLawyer)
+        console.log(isLawyer)
+        try{
+            const res = await createUserWithEmailAndPassword(auth, email, password);
+            console.log(res)
+            await setDoc(doc(db,"users",res.user.uid),{
+               uid : res.user.uid,
+                email : email,
+                 lawyer : isLawyer
+            })
+            if(isLawyer){
+                navigate("/input");
+            }
+        }catch(e){
+            console.log(e)
+            setError(true)
+        }
+    }
     return (
         <section class="">
             <div class=" bg-[#05397A] h-screen">      
@@ -25,7 +81,7 @@ const SignUp = () => {
                         </p>
                         </div>
 
-                        <form action="#" class="">                
+                        <form  onSubmit={handleSubmit}>                
 
                         <div class="mb-2">
                             <label for="Email" class="block text-sm font-medium text-gray-700">
@@ -37,6 +93,7 @@ const SignUp = () => {
                             id="Email"
                             name="email"
                             class="mt-1 w-full rounded-md border-gray-200 bg-gray-200 text-sm text-black shadow-sm py-2"
+                            onChange={(e)=>{handleEmailChange(e)}}
                             />
                         </div>
 
@@ -53,6 +110,7 @@ const SignUp = () => {
                             id="Password"
                             name="password"
                             class="mt-1 w-full rounded-md border-gray-200 bg-gray-200 text-sm text-black shadow-sm py-2"
+                            onChange={(e)=>{handlePasswordChange(e)}}
                             />
                         </div>
 
@@ -63,13 +121,17 @@ const SignUp = () => {
                                 id="MarketingAccept"
                                 name="marketing_accept"
                                 class="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
+                                value={true}
+                                onChange={(e)=>{lawyerLogin(e)}}
                             />
 
                             <span class="text-sm text-gray-700">
-                                Remember Me
+                                Sign Up as Lawyer
                             </span>
                             </label>
+                            
                         </div>
+                        {}
 
 
                         <div class="">
@@ -96,6 +158,10 @@ const SignUp = () => {
                             Google
                             </button>
                         </div>
+                        {error &&
+                        <h4 className="text-center my-2">Something went wrong</h4>
+                        }
+                        
                         <h4 className="text-center my-2">New account yet? Sign Up</h4>
                         </form>
                     </div>
