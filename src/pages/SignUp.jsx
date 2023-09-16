@@ -12,7 +12,13 @@ const SignUp = () => {
     const [error, setError] = useState(false)
     const [data, setData] = useState({
         email: "",
-        password: ""
+        password: "",
+        first_name : "",
+        last_name : "",
+        contact : null,
+        city : "Mumbai",
+        exp : "",
+        specialisation : ""
     })
     const [asLawyer, setAsLaywer] = useState(false)
     const handleEmailChange = (e) => {
@@ -27,6 +33,42 @@ const SignUp = () => {
         })
         console.log(data)
     }
+    const handlefirstNameChange = (e) =>{
+        setData((prev) => {
+            return ({ ...prev, first_name: e.target.value })
+        })
+        console.log(data)
+    }
+    const handleLastNameChange = (e) =>{
+        setData((prev) => {
+            return ({ ...prev, last_name: e.target.value })
+        })
+        console.log(data)
+    }
+    const expChange = (e) =>{
+        setData((prev) => {
+            return ({ ...prev, exp: e.target.value })
+        })
+        console.log(data)
+    }
+    const handleContactChange = (e)=>{
+        setData((prev)=>{
+            return ( {...prev,contact : e.target.value})
+        })
+        console.log(data)
+    }
+    const handleSpecializatoinChange = (e)=>{
+        setData((prev)=>{
+            return ( {...prev,specialisation : e.target.value})
+        })
+        console.log(data)
+    }
+    const handleCityChange = (e) =>{
+        setData((prev)=>{
+            return( {...prev, city : e.target.value})
+        })
+        console.log(data)
+    }
     const lawyerLogin = (e) => {
         setAsLaywer((prev) => {
             return (!prev)
@@ -34,11 +76,22 @@ const SignUp = () => {
         console.log(data)
     }
     const handleSubmit = async (e) => {
-
+        // first_name : "",
+        // last_name : "",
+        // contact : null,
+        // city : "Mumbai",
+        // exp : "",
+        // specialisation : ""
         e.preventDefault();
-        const email = e.target[0].value;
-        const password = e.target[1].value;
+        const email = data.email;
+        const password = data.password;
         const isLawyer = asLawyer;
+        const firstName = data.first_name;
+        const lastName = data.last_name;
+        const contactNumber = data.contact;
+        const city = data.city;
+        const exp = data.exp;
+        const specialisation = data.specialisation;
         setLawyer(isLawyer)
         console.log(isLawyer)
         try {
@@ -47,7 +100,13 @@ const SignUp = () => {
             await setDoc(doc(db, "users", res.user.uid), {
                 uid: res.user.uid,
                 email: email,
-                lawyer: isLawyer
+                lawyer: isLawyer,
+                firstName : firstName,
+                lastName : lastName,
+                contactNumber : contactNumber,
+                city : city,
+                exp : exp,
+                specialisation : specialisation
             })
             if (isLawyer) {
                 navigate("/input");
@@ -143,7 +202,7 @@ const SignUp = () => {
                                             id="FirstName"
                                             name="first_name"
                                             class="mt-1 w-full rounded-md border-gray-200 bg-gray-200 text-sm text-black shadow-sm py-2"
-                                            onChange={(e) => { handleEmailChange(e) }}
+                                            onChange={(e) => { handlefirstNameChange(e) }}
                                         />
                                     </div>
                                     <div className="mb-2">
@@ -156,7 +215,7 @@ const SignUp = () => {
                                             id="LastName"
                                             name="last_name"
                                             class="mt-1 w-full rounded-md border-gray-200 bg-gray-200 text-sm text-black shadow-sm py-2"
-                                            onChange={(e) => { handleEmailChange(e) }}
+                                            onChange={(e) => { handleLastNameChange(e) }}
                                         />
                                     </div>
                                     <div className="mb-2">
@@ -169,11 +228,11 @@ const SignUp = () => {
                                             id="ContactNumber"
                                             name="contact_number"
                                             class="mt-1 w-full rounded-md border-gray-200 bg-gray-200 text-sm text-black shadow-sm py-2"
-                                            onChange={(e) => { handleEmailChange(e) }}
+                                            onChange={(e) => { handleContactChange(e) }}
                                         />
                                     </div>
                                     <div className='text-xl'>City</div>
-                                    <select className='border border-black-1 px-2 py-3'>
+                                    <select className='border border-black-1 px-2 py-3' onChange={(e)=>{handleCityChange(e)}}>
                                         <option>Mumbai</option>
                                         <option>Delhi</option>
                                         <option>Luckhnow</option>
@@ -182,51 +241,51 @@ const SignUp = () => {
                                     </select>
                                     <div>
                                         <div className='text-xl'>Year of experience</div>
-                                        <input type='number' className='border border-black-1 px-2 py-3' placeholder='E.G. 1' />
+                                        <input type='number' className='border border-black-1 px-2 py-3' placeholder='E.G. 1' onChange={(e)=>{expChange(e)}}/>
                                     </div>
                                     <div>Specialisation</div>
-                                    <div className='flex flex-col items-center justify-around mt-3'>
+                                    
                                         <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
+                                            <input type="radio" id="opt1" name="vehicle1" value="Estate Planning Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Estate Planning Lawyer</label><br />
                                         </div>
                                         <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
+                                            <input type="radio" id="opt2" name="vehicle1" value="Bankruptcy Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Bankruptcy Lawyer</label><br />
                                         </div>
                                         <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
+                                            <input type="radio" id="opt3" name="vehicle1" value="Employment Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Employment Lawyer</label><br />
                                         </div>
-                                    </div>
-                                    <div className='flex flex-col items-center justify-around mt-3'>
+                                   
+                                    
                                         <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
+                                            <input type="radio" id="opt9" name="vehicle1" value="Corporate Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Corporate Lawyer</label><br />
                                         </div>
                                         <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col items-center justify-around mt-3'>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
+                                            <input type="radio" id="opt4" name="vehicle1" value="Immigration Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Immigration Lawye</label><br />
                                         </div>
                                         <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
+                                            <input type="radio" id="opt5" name="vehicle1" value="Criminal Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Criminal Lawyer</label><br />
+                                        </div>
+                                   
+                                   
+                                        <div>
+                                            <input type="radio" id="opt6" name="vehicle1" value="Tax Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Tax Lawyer</label><br />
                                         </div>
                                         <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label for="vehicle1"> I have a bike</label><br />
+                                            <input type="radio" id="opt7" name="vehicle1" value="Family Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Family Lawyer</label><br />
                                         </div>
-                                    </div>
+                                        <div>
+                                            <input type="radio" id="opt8" name="vehicle1" value="Contract Lawyer" onChange={(e)=>{handleSpecializatoinChange(e)}}/>
+                                            <label for="vehicle1">Contract Lawyer</label><br />
+                                        </div>
+                                   
                                 </div>
                             }
 

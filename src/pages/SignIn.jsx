@@ -89,7 +89,6 @@ const SignIn = () => {
                         </button>
                     </div>
 
-                    {/* <div className="bg-black h-[1px] w-full"></div> */}
                     <div class="relative block w-full">
 
                         <p
