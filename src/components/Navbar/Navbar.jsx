@@ -21,9 +21,9 @@ const Navbar = () => {
                 <li className="text-white font-semibold text-xl"><a href="/chat">Chat</a></li>
             </ul>
             <div className="app__navbar-login">
-                <a href="#login" className="text-white font-semibold text-xl">Sign UP</a>
+                <a href="/signup" className="text-white font-semibold text-xl">Sign UP</a>
                 <div />
-                <a href="/" className="text-white font-semibold text-xl">Sign IN</a>
+                <a href="/signin" className="text-white font-semibold text-xl">Sign IN</a>
             </div>
             <div className="app__navbar-smallscreen">
                 <div color="#fff" fontSize={27} onClick={() => setToggleMenu(true)}>

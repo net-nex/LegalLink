@@ -2,7 +2,7 @@ import React from 'react'
 
 const BottomCta = () => {
     return (
-    <section className='px-14 sm:mx-[120px] sm:pb-[50px] bg-[#EAEEF1] py-10'>
+    <section className='px-14 sm:mx-[120px] sm:pb-[50px] bg-[#EAEEF1] py-10 mb-9'>
         <h1 className='text-3xl font-bold text-center pb-5'>Stay In Touch</h1>
         <p className='w-50 text-center mx-auto'>Sign up for our mailing list to get latest updates and offers.</p>
         <div className='flex justify-center items-center pt-5'>

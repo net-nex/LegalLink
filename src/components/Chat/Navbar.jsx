@@ -3,7 +3,8 @@ import {signOut} from "firebase/auth"
 import { auth } from '../../firebase'
 import { AuthContext } from '../../context/authContext'
 
-const Navbar = () => {
+
+const NavbarChat = () => {
   const {currentUser} = useContext(AuthContext)
 
   return (
@@ -15,10 +16,10 @@ const Navbar = () => {
 </svg>
 
         <span>{currentUser.displayName}</span>
-        <button onClick={()=>signOut(auth)}>logout</button>
+        <button onClick={()=>signOut(auth)} className='border-r-2 pr-4'>logout</button>
       </div>
     </div>
   )
 }
 
-export default Navbar
+export default NavbarChat
