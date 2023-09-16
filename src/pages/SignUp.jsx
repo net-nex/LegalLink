@@ -18,7 +18,8 @@ const SignUp = () => {
         contact : null,
         city : "Mumbai",
         exp : "",
-        specialisation : ""
+        specialisation : "",
+        displayName: ""
     })
     const [asLawyer, setAsLaywer] = useState(false)
     const handleEmailChange = (e) => {
@@ -44,6 +45,11 @@ const SignUp = () => {
             return ({ ...prev, last_name: e.target.value })
         })
         console.log(data)
+    }
+    const handleDisplayNameChange = (e)=>{
+        setData((prev) => {
+            return ({ ...prev,displayName: e.target.value })
+        })
     }
     const expChange = (e) =>{
         setData((prev) => {
@@ -86,6 +92,7 @@ const SignUp = () => {
         const city = data.city;
         const exp = data.exp;
         const specialisation = data.specialisation;
+        const displayName = data.displayName
         setLawyer(isLawyer)
         console.log(isLawyer)
         try {
@@ -101,17 +108,18 @@ const SignUp = () => {
                 contactNumber : contactNumber,
                 city : city,
                 exp : exp,
-                specialisation : specialisation
+                specialisation : specialisation,
+                displayName : displayName
             })}else{
                 await setDoc(doc(db,"users",res.user.uid),{
                     uid : res.user.uid,
                     email : email,
-                    lawyer : isLawyer
+                    lawyer : isLawyer,
+                    displayName : displayName
                  })
+            await setDoc(doc(db, "userChats", res.user.uid), {});
             }
-            if (isLawyer) {
-                navigate("/");
-            }
+            navigate('/')
         } catch (e) {
             console.log(e)
             setError(true)
@@ -143,6 +151,19 @@ const SignUp = () => {
 
                         <form onSubmit={handleSubmit}>
 
+                            <div class="mb-2">
+                                <label for="Email" class="block text-sm font-medium text-gray-700">
+                                    Display Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="mt-1 w-full rounded-md border-gray-200 bg-gray-200 text-sm text-black shadow-sm py-2"
+                                    onChange={(e) => { handleDisplayNameChange(e) }}
+                                />
+                            </div>
                             <div class="mb-2">
                                 <label for="Email" class="block text-sm font-medium text-gray-700">
                                     Email
