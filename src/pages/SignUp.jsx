@@ -316,7 +316,7 @@ const SignUp = () => {
                                 <button
                                     class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 w-full text-center my-4"
                                 >
-                                    Login In
+                                    Sign Up
                                 </button>
                             </div>
 
@@ -340,7 +340,7 @@ const SignUp = () => {
                                 <h4 className="text-center my-2">Something went wrong</h4>
                             }
 
-                            <h4 className="text-center my-2">New account yet? Sign Up</h4>
+                            <h4 className="text-center my-2">New account yet? <a href="/signin">Sign In</a></h4>
                         </form>
                     </div>
                 </main>
