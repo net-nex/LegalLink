@@ -40,9 +40,9 @@ const Lawyers = () => {
     <div className='lawyers' id='lawyers'>
       <div className='flex flex-col px-[120px]'>
         <div className='flex justify-center items-center lawyers_heading'>
-          <h2 className='text-4xl font-bold py-5'>Popular Lawyers</h2>
+          <h2 className='text-3xl font-bold py-5'>Popular Lawyers</h2>
         </div>
-        <div className='flex justify-center items-center text-lg text-center font-semibold mb-3'>
+        <div className='flex justify-center items-center text-center mb-3'>
           <p>Discover our elite team of legal experts, meticulously selected to provide you with top-notch legal counsel. Our best lawyers are here to guide you through your legal journey with unparalleled expertise and dedication</p>
         </div>
         <div className='flex flex-col justify-center items-center lawyers_city px-10 sm:ml-40px sm:mr-40px '>
