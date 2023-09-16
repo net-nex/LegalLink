@@ -11,33 +11,41 @@ const Navbar = () => {
     return (
         <nav className="app__navbar">
             <div className="app__navbar-logo">
-                <img src={Image} alt="app__logo" />
+                <a href="/">
+                   <img src={Image} alt="app__logo" />
+                </a>
             </div>
             <ul className="app__navbar-links">
-                <li className="p__opensans"><a href="#about">About</a></li>
-                <li className="p__opensans"><a href="#dashboard">Dashboard</a></li>
-                <li className="p__opensans"><a href="#chat">Chat</a></li>
+                <li className="text-white font-semibold text-xl "><a href="#lawyers">Lawyers</a></li>
+                <li className="text-white font-semibold text-xl"><a href="/dashboard">Dashboard</a></li>
+                <li className="text-white font-semibold text-xl"><a href="/chat">Chat</a></li>
             </ul>
             <div className="app__navbar-login">
-                <a href="#login" className="p__opensans">Sign UP</a>
+                <a href="#login" className="text-white font-semibold text-xl">Sign UP</a>
                 <div />
-                <a href="/" className="p__opensans">Sign IN</a>
+                <a href="/" className="text-white font-semibold text-xl">Sign IN</a>
             </div>
             <div className="app__navbar-smallscreen">
-                {/* <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} /> */}
-                <div color="#fff" fontSize={27} onClick={()=>setToggleMenu(true)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                <div color="#fff" fontSize={27} onClick={() => setToggleMenu(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" color='white' viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                     </svg>
+
                 </div>
 
                 {toggleMenu && (
                     <div className="app__navbar-smallscreen_overlay flex__center slide-bottom ">
-                        {/* <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} /> */}
-                        <ul className="app__navbar-smallscreen_links">
-                        <li className="p__opensans"><a href="#about">About</a></li>
-                        <li className="p__opensans"><a href="#dashboard">Dashboard</a></li>
-                        <li className="p__opensans"><a href="#chat">Chat</a></li>
+                        <div color="#fff" fontSize={27} onClick={() => setToggleMenu(false)} className='w-full flex justify-end pr-5 pt-5'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+
+
+                        </div>
+                        <ul className="app__navbar-smallscreen_links " onClick={() => setToggleMenu(false)}>
+                            <li className="font-bold text-white"><a href="#lawyers">Lawyers</a></li>
+                            <li className="font-bold"><a href="/dashboard">Dashboard</a></li>
+                            <li className="font-bold"><a href="/chat">Chat</a></li>
                         </ul>
                     </div>
                 )}

@@ -94,7 +94,7 @@
 .app__navbar-smallscreen_links li {
     margin: 2rem;
     cursor: pointer;
-    color: var(--color-golden);
+    color: white;
     font-size: 2rem;
     text-align: center;
     font-family: var(--font-base);
@@ -135,11 +135,11 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap'); */
 
 :root {
-  --font-base: 'Cormorant Upright', serif;
-  --font-alt: 'Open Sans', sans-serif;
+  /* --font-base: 'Cormorant Upright', serif;
+  --font-alt: 'Open Sans', sans-serif; */
   
   --color-golden: #DCCA87;
   --color-black: #0C0C0C;
