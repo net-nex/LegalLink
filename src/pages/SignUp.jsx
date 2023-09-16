@@ -76,12 +76,6 @@ const SignUp = () => {
         console.log(data)
     }
     const handleSubmit = async (e) => {
-        // first_name : "",
-        // last_name : "",
-        // contact : null,
-        // city : "Mumbai",
-        // exp : "",
-        // specialisation : ""
         e.preventDefault();
         const email = data.email;
         const password = data.password;
@@ -97,7 +91,8 @@ const SignUp = () => {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
             console.log(res)
-            await setDoc(doc(db, "users", res.user.uid), {
+            if(isLawyer){
+            await setDoc(doc(db, "lawyers", res.user.uid), {
                 uid: res.user.uid,
                 email: email,
                 lawyer: isLawyer,
@@ -107,9 +102,15 @@ const SignUp = () => {
                 city : city,
                 exp : exp,
                 specialisation : specialisation
-            })
+            })}else{
+                await setDoc(doc(db,"users",res.user.uid),{
+                    uid : res.user.uid,
+                    email : email,
+                    lawyer : isLawyer
+                 })
+            }
             if (isLawyer) {
-                navigate("/input");
+                navigate("/");
             }
         } catch (e) {
             console.log(e)
