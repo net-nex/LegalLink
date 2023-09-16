@@ -1,6 +1,23 @@
-
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 const SignIn = () => {
+    const [err, setErr] = useState(false);
+  const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const email = e.target[0].value;
+        const password = e.target[1].value;
+        console.log(email,password)
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+          navigate("/")
+        } catch (err) {
+          setErr(true);
+        }
+      };
     return (
         <section class="">
         <div class=" bg-[#05397A] h-screen">      
@@ -13,19 +30,11 @@ const SignIn = () => {
                     <h1
                         class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl text-center mb-4"
                     >
-                        Create Account
+                        Sign in to your Account
                     </h1>
                     </div>
-                    <div class="relative block ">
 
-                    <p
-                        class="mt-2 text-gray-900 text-center mb-4"
-                    >
-                        Create Your New Account
-                    </p>
-                    </div>
-
-                    <form action="#" class="">                
+                    <form action="#" class="" onSubmit={handleSubmit}>                
 
                     <div class="mb-2">
                         <label for="Email" class="block text-sm font-medium text-gray-700">
