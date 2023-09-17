@@ -6,11 +6,6 @@ import { Children, useContext } from "react";
 import { AuthContext } from "../context/authContext";
 import { useNavigate,Navigate } from 'react-router-dom';
 const Chatting = () => {
-  const navigate = useNavigate
-  const { currentUser,lawyer } = useContext(AuthContext);
-  if(!currentUser){
-    return <Navigate to={'/signup'}/>
-  }
   return (
     <>
         <Navbar />
